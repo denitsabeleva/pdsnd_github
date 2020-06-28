@@ -76,7 +76,7 @@ def load_data(city, month, day):
     if day != 'all':
         # use the index of the months list to get the corresponding int
         days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-        dayi = days.index(day) 
+        dayi = days.index(day)
 
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == dayi]
@@ -101,9 +101,9 @@ def time_stats(df):
 
     # find the most popular month
     popular_month = df['month'].mode()[0]
-    
+
     # TO DO: display the most common day of week
-    
+
     # extract day from the Start Time column to create a day column
     df['day'] = df['Start Time'].dt.weekday
 
@@ -135,7 +135,7 @@ def station_stats(df):
     # TO DO: display most commonly used start station
 
     print('Most Popular Start Station:', df['Start Station'].mode()[0])
-    
+
     # TO DO: display most commonly used end station
 
     print('Most Popular End Station:', df['End Station'].mode()[0])
@@ -181,7 +181,7 @@ def user_stats(df):
     if 'Gender' in df:
         print('Display counts of gender:')
         print(df['Gender'].value_counts())
-    else: 
+    else:
         print('Gender not available')
 
     # TO DO: Display earliest, most recent, and most common year of birth
@@ -190,7 +190,7 @@ def user_stats(df):
         maxy = df['Birth Year'].max()
         modey = df['Birth Year'].mode()[0]
         print('Years of birth as follows: Earliest - {}, most recent - {}, and most common - {}'.format( miny,maxy,modey ))
-    else: 
+    else:
         print('Year of birth not available')
 
     print("This took %s seconds." % (time.time() - start_time))
@@ -215,7 +215,6 @@ def main():
                 break
             print(df.iloc[i:i+5])
             i += 5
-            
 
         restart = input('Would you like to restart? Enter yes or no.')
         if restart.lower() != 'yes':
@@ -223,4 +222,4 @@ def main():
 
 
 if __name__ == "__main__":
-	main()
+    main()
