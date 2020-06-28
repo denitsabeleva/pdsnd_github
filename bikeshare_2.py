@@ -88,7 +88,7 @@ def load_data(city, month, day):
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
-    print('\nCalculating The Most Frequent Times of Travel...\n')
+    print('Calculating The Most Frequent Times of Travel...')
     start_time = time.time()
 
     # TO DO: display the most common month
@@ -122,14 +122,14 @@ def time_stats(df):
 
     print('Most Popular Start Hour:', popular_hour)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("This took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
-    print('\nCalculating The Most Popular Stations and Trip...\n')
+    print('Calculating The Most Popular Stations and Trip...')
     start_time = time.time()
 
     # TO DO: display most commonly used start station
@@ -145,14 +145,14 @@ def station_stats(df):
     df['Start-End Station'] = df['Start Station']+' - ' + df['End Station']
     print('Most Popular Start-End Station Combination:', df['Start-End Station'].mode()[0])
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("This took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
-    print('\nCalculating Trip Duration...\n')
+    print('Calculating Trip Duration...')
     start_time = time.time()
 
     # TO DO: display total travel time
@@ -163,14 +163,14 @@ def trip_duration_stats(df):
 
     print('Mean travel time:', df['Trip Duration'].mean())
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("This took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
-    print('\nCalculating User Stats...\n')
+    print('Calculating User Stats...')
     start_time = time.time()
 
     # TO DO: Display counts of user types
@@ -193,7 +193,7 @@ def user_stats(df):
     else: 
         print('Year of birth not available')
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("This took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
@@ -210,13 +210,14 @@ def main():
         user_stats(df)
         i = 0
         while True:
-            more_data = input('\nWould you like to see five (more) lines of individual trip data? Enter yes or no.\n')
+            more_data = input('Would you like to see five (more) lines of individual trip data? Enter yes or no.')
             if more_data.lower() != 'yes':
                 break
             print(df.iloc[i:i+5])
             i += 5
             
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
+
+        restart = input('Would you like to restart? Enter yes or no.')
         if restart.lower() != 'yes':
             break
 
