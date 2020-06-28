@@ -11,4 +11,4 @@ Demonstrates how to analyze data in Pandas using US bike share data as an exampl
 bikeshare_2.py
 
 ### Credits
-Udactiy
+Udactiy: http://udacity.com
