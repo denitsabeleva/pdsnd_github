@@ -2,9 +2,9 @@ import time
 import pandas as pd
 import numpy as np
 
-CITY_DATA = { 'chicago': 'chicago.csv',
-              'new york city': 'new_york_city.csv',
-              'washington': 'washington.csv' }
+CITY_DATA = {'chicago': 'chicago.csv',
+             'new york city': 'new_york_city.csv',
+             'washington': 'washington.csv'}
 
 def get_filters():
     """
@@ -34,7 +34,8 @@ def get_filters():
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     print('Choose a weekday between all, monday, tuesday, ... sunday')
     day = input('> ')
-    while day not in ('all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'):
+    while day not in ('all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday',
+                      'saturday', 'sunday'):
         print('invalid input ' + day)
         day = input('> ')
 
@@ -76,7 +77,7 @@ def load_data(city, month, day):
     if day != 'all':
         # use the index of the months list to get the corresponding int
         days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-        dayi = days.index(day) 
+        dayi = days.index(day)
 
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == dayi]
@@ -109,7 +110,7 @@ def time_stats(df):
 
     # find the most popular day index and then display the correspoding to it weekday
     popular_day = df['day'].mode()[0]
-    days = ['monday', 'tuesday','wednesday','thursday','friday','saturday', 'sunday']
+    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
     popular_day = days[popular_day - 1]
 
     # TO DO: display the most common start hour
@@ -181,7 +182,7 @@ def user_stats(df):
     if 'Gender' in df:
         print('Display counts of gender:')
         print(df['Gender'].value_counts())
-    else: 
+    else:
         print('Gender not available')
 
     # TO DO: Display earliest, most recent, and most common year of birth
@@ -189,8 +190,9 @@ def user_stats(df):
         miny = df['Birth Year'].min()
         maxy = df['Birth Year'].max()
         modey = df['Birth Year'].mode()[0]
-        print('Years of birth as follows: Earliest - {}, most recent - {}, and most common - {}'.format( miny,maxy,modey ))
-    else: 
+        print('Years of birth as follows: '
+              'Earliest - {}, most recent - {}, and most common - {}'.format( miny,maxy,modey ))
+    else:
         print('Year of birth not available')
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -210,16 +212,18 @@ def main():
         user_stats(df)
         i = 0
         while True:
-            more_data = input('\nWould you like to see five (more) lines of individual trip data? Enter yes or no.\n')
+            msg = '\nWould you like to see five (more) lines of individual trip data? '
+                  'Enter yes or no.\n'
+            more_data = input(msg)
             if more_data.lower() != 'yes':
                 break
             print(df.iloc[i:i+5])
             i += 5
-            
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
 
 
 if __name__ == "__main__":
-	main()
+    main()
