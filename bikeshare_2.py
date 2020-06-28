@@ -89,7 +89,7 @@ def load_data(city, month, day):
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
-    print('\nCalculating The Most Frequent Times of Travel...\n')
+    print('Calculating The Most Frequent Times of Travel...')
     start_time = time.time()
 
     # TO DO: display the most common month
@@ -119,14 +119,14 @@ def time_stats(df):
 
     print('Most Popular Start Hour:', popular_hour)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("This took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
-    print('\nCalculating The Most Popular Stations and Trip...\n')
+    print('Calculating The Most Popular Stations and Trip...')
     start_time = time.time()
 
     print('Most Popular Start Station:', df['Start Station'].mode()[0])
@@ -135,14 +135,14 @@ def station_stats(df):
     df['Start-End Station'] = df['Start Station']+' - ' + df['End Station']
     print('Most Popular Start-End Station Combination:', df['Start-End Station'].mode()[0])
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("This took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
-    print('\nCalculating Trip Duration...\n')
+    print('Calculating Trip Duration...')
     start_time = time.time()
     print('Total travel time:', df['Trip Duration'].sum())
     print('Mean travel time:', df['Trip Duration'].mean())
@@ -153,7 +153,7 @@ def trip_duration_stats(df):
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
-    print('\nCalculating User Stats...\n')
+    print('Calculating User Stats...')
     start_time = time.time()
 
     # TO DO: Display counts of user types
@@ -176,7 +176,7 @@ def user_stats(df):
     else:
         print('Year of birth not available')
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("This took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
